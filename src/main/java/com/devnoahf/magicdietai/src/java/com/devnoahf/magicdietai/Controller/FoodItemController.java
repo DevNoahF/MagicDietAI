@@ -1,7 +1,7 @@
-package com.devnoahf.magicdietai.Controller;
+package com.devnoahf.magicdietai.src.java.com.devnoahf.magicdietai.Controller;
 
-import com.devnoahf.magicdietai.Model.FoodItem;
-import com.devnoahf.magicdietai.Service.FoodItemService;
+import com.devnoahf.magicdietai.src.java.com.devnoahf.magicdietai.Model.FoodItem;
+import com.devnoahf.magicdietai.src.java.com.devnoahf.magicdietai.Service.FoodItemService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

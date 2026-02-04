@@ -1,4 +1,4 @@
-package com.devnoahf.magicdietai.Config;
+package com.devnoahf.magicdietai.src.java.com.devnoahf.magicdietai.Config;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

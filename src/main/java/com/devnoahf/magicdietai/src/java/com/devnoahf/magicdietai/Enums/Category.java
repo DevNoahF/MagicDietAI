@@ -1,6 +1,6 @@
-package com.devnoahf.magicdietai.Enums;
+package com.devnoahf.magicdietai.src.java.com.devnoahf.magicdietai.Enums;
 
-public enum Categoria {
+public enum Category {
     FRUTA,
     LEGUME,
     VERDURA,

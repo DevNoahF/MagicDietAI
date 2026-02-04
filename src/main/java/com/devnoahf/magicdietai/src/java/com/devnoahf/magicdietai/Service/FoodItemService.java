@@ -1,7 +1,7 @@
-package com.devnoahf.magicdietai.Service;
+package com.devnoahf.magicdietai.src.java.com.devnoahf.magicdietai.Service;
 
-import com.devnoahf.magicdietai.Model.FoodItem;
-import com.devnoahf.magicdietai.Repository.FoodItemRepository;
+import com.devnoahf.magicdietai.src.java.com.devnoahf.magicdietai.Model.FoodItem;
+import com.devnoahf.magicdietai.src.java.com.devnoahf.magicdietai.Repository.FoodItemRepository;
 import org.springframework.stereotype.Service;
 import java.lang.Long;
 import java.util.List;

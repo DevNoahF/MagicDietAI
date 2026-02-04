@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class MagicDietAiApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(MagicDietAiApplication.class, args);
+        SpringApplication.run(com.devnoahf.magicdietai.src.java.com.devnoahf.magicdietai.MagicDietAiApplication.class, args);
     }
 
 }
