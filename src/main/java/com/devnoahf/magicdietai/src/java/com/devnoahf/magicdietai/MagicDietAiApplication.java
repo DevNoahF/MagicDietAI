@@ -1,4 +1,4 @@
-package com.devnoahf.magicdietai;
+package com.devnoahf.magicdietai.src.java.com.devnoahf.magicdietai;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
