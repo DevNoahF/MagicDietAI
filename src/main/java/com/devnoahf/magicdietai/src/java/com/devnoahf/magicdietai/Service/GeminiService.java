@@ -1,7 +1,7 @@
 package com.devnoahf.magicdietai.src.java.com.devnoahf.magicdietai.Service;
 
-import com.devnoahf.magicdietai.src.java.com.devnoahf.magicdietai.Model.FoodItem;
-import com.devnoahf.magicdietai.src.java.com.devnoahf.magicdietai.Model.User;
+import com.devnoahf.magicdietai.src.java.com.devnoahf.magicdietai.dto.FoodItemRequestDTO;
+import com.devnoahf.magicdietai.src.java.com.devnoahf.magicdietai.dto.UserRequestDTO;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
@@ -24,16 +24,18 @@ public class GeminiService {
                 .build();
     }
 
-    public Mono<String> generateRecipe(List<FoodItem> foodItems, List<User> users) {
+    public Mono<String> generateRecipe(List<FoodItemRequestDTO> foodItems, List<UserRequestDTO> users) {
         String foods = foodItems.stream()
                 .map(item -> String.format("%s (%s): %d quantidade(s), validade: %s",
-                        item.getNome(), item.getCategory(), item.getQuantidade(),
-                        item.getValidade().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))))
+                        item.nameFood(),
+                        item.category(),
+                        item.amount(),
+                        item.validity().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))))
                 .collect(Collectors.joining("\n"));
 
         String user = users.stream()
-                .map(userInfo -> String.format("Nome: %s, Diet: %s",
-                        userInfo.getNome(), userInfo.getDiet()))
+                .map(userInfo -> String.format("Diet: %s",
+                        userInfo.diet()))
                 .collect(Collectors.joining("\n"));
 
         String prompt = "Baseado na diet do usuário: " + user +

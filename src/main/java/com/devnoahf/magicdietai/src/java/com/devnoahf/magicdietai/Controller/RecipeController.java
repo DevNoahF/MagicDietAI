@@ -1,10 +1,10 @@
 package com.devnoahf.magicdietai.src.java.com.devnoahf.magicdietai.Controller;
 
-import com.devnoahf.magicdietai.src.java.com.devnoahf.magicdietai.Model.FoodItem;
-import com.devnoahf.magicdietai.src.java.com.devnoahf.magicdietai.Model.User;
 import com.devnoahf.magicdietai.src.java.com.devnoahf.magicdietai.Service.FoodItemService;
 import com.devnoahf.magicdietai.src.java.com.devnoahf.magicdietai.Service.GeminiService;
 import com.devnoahf.magicdietai.src.java.com.devnoahf.magicdietai.Service.UserService;
+import com.devnoahf.magicdietai.src.java.com.devnoahf.magicdietai.dto.FoodItemRequestDTO;
+import com.devnoahf.magicdietai.src.java.com.devnoahf.magicdietai.dto.UserRequestDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,8 +29,8 @@ public class RecipeController {
 
     @GetMapping("/generate")
     public Mono<ResponseEntity<String>> generateRecipe() {
-        List<FoodItem> foodItems = foodItemService.listar();
-        List<User> users = userService.listar();
+        List<FoodItemRequestDTO> foodItems = foodItemService.getFoodItems();
+        List<UserRequestDTO> users = userService.listar();
         return geminiService.generateRecipe(foodItems, users)
                 .map(ResponseEntity::ok)
                 .defaultIfEmpty(ResponseEntity.notFound().build());
