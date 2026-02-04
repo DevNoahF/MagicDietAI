@@ -1,43 +1,43 @@
 package com.devnoahf.magicdietai.src.java.com.devnoahf.magicdietai.Service;
 
-import com.devnoahf.magicdietai.src.java.com.devnoahf.magicdietai.Model.FoodItem;
-import com.devnoahf.magicdietai.src.java.com.devnoahf.magicdietai.Repository.FoodItemRepository;
+import com.devnoahf.magicdietai.src.java.com.devnoahf.magicdietai.dto.FoodItemRequestDTO;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import java.lang.Long;
-import java.util.List;
-import java.util.Optional;
+
+import java.util.ArrayList;
 
 
 @Service
+@Slf4j
 public class FoodItemService {
 
-
-    private  FoodItemRepository repository;
-
-    public FoodItemService(FoodItemRepository repository) {
-        this.repository = repository;
+    ArrayList<FoodItemRequestDTO> foodItems;
+    public FoodItemService() {
+        this.foodItems = new ArrayList<>();
     }
 
-    public FoodItem criar(FoodItem foodItem){
-        return repository.save(foodItem);
+    public ArrayList<FoodItemRequestDTO> getFoodItems() {
+        log.info("listando itens");
+        return foodItems;
     }
 
-    public List<FoodItem> listar(){
-        return repository.findAll();
+    public ArrayList<FoodItemRequestDTO> addFoodItems(FoodItemRequestDTO foodItemRequestDTO) {
+        log.info("adicionando itens");
+        foodItems.add(foodItemRequestDTO);
+        return foodItems;
     }
 
-    public Optional<FoodItem> buscar(Long id){
-        return repository.findById(id);
+    public void deleteFoodItems() {
+        log.info("deletando itens");
+        foodItems.clear();
     }
 
-    public FoodItem atualizar(FoodItem foodItem){
-        return repository.save(foodItem);
-    }
 
-    public void deletar(Long id){
-        Optional<FoodItem> foodItem = repository.findById(id);
-        if(foodItem.isPresent()){
-            repository.deleteById(id);
-        }
-    }
+
+
+
+
+
+
+
 }
